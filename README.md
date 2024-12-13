@@ -18,7 +18,7 @@
    cd votre-repo
 
 composer install
-
+php bin/console app:create-user
 
 l'app fonctionne via le localhost sur votre browser 
 
