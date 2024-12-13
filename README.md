@@ -22,6 +22,14 @@ composer install
 
 l'app fonctionne via le localhost sur votre browser 
 
+Admin:
+- email: admin@test.com
+- password: admin123
+
+User:
+- email: user@test.com
+- password: user123
+
    Routes Disponibles
 Routes pour les utilisateurs (administrateurs)
 Liste des utilisateurs
