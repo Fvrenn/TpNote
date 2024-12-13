@@ -14,7 +14,7 @@
 1. Clonez le dépôt :
 
    ```sh
-   git clone https://github.com/votre-utilisateur/votre-repo.git
+   git clone https://github.com/Fvrenn/TpNote.git
    cd votre-repo
 
 composer install
