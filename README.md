@@ -1,8 +1,6 @@
 # Système de Gestion des Réservations
 
-## Description
 
-Ce projet est une application backend pour la gestion des réservations en ligne d'une salle d'événements. Il permet aux administrateurs de gérer les utilisateurs et les réservations, et aux utilisateurs de gérer leurs informations personnelles et leurs réservations.
 
 ## Prérequis
 
@@ -18,6 +16,9 @@ Ce projet est une application backend pour la gestion des réservations en ligne
    ```sh
    git clone https://github.com/votre-utilisateur/votre-repo.git
    cd votre-repo
+
+composer install
+
 
    Routes Disponibles
 Routes pour les utilisateurs (administrateurs)
@@ -77,3 +78,7 @@ URL : /profile/edit
 Nom : profile_edit
 Méthode : GET, POST
 Description : Affiche le formulaire de modification des informations personnelles de l'utilisateur connecté et traite la soumission du formulaire.
+
+
+login: /login
+logout: /logout
