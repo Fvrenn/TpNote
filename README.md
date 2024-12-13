@@ -20,6 +20,8 @@
 composer install
 
 
+l'app fonctionne via le localhost sur votre browser 
+
    Routes Disponibles
 Routes pour les utilisateurs (administrateurs)
 Liste des utilisateurs
