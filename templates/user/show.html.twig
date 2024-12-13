@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'utilisateur{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'utilisateur</h1>
+
+    <table>
+        <tr>
+            <th>Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ user.name }}</td>
+        </tr>
+        <tr>
+            <th>Numéro de téléphone</th>
+            <td>{{ user.phoneNumber }}</td>
+        </tr>
+        <tr>
+            <th>Rôles</th>
+            <td>{{ user.roles|join(', ') }}</td>
+        </tr>
+    </table>
+
+    <a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+    <a href="{{ path('user_index') }}">Retour à la liste</a>
+{% endblock %}

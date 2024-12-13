@@ -18,36 +18,28 @@ class Reservation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: 'integer')]
+    private $id;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    #[Assert\NotBlank]
-    #[Assert\GreaterThan('+24 hours', message: 'La réservation doit être faite au moins 24 heures à l\'avance.')]
-    private ?DateTimeInterface $date = null;
-
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Regex(
-        pattern: '/^([0-1][0-9]|2[0-3]):[0-5][0-9]-([0-1][0-9]|2[0-3]):[0-5][0-9]$/',
-        message: 'Le format de la plage horaire doit être HH:mm-HH:mm (exemple: 18:00-20:00)'
+    #[ORM\Column(type: 'datetime')]
+    #[Assert\NotNull(message: 'La date et l\'heure ne doivent pas être nulles.')]
+    #[Assert\GreaterThanOrEqual(
+        'now +1 day',
+        message: 'Les réservations doivent se faire au moins 24 heures à l\'avance.'
     )]
-    private ?string $timeSlot = null;
+    private $date;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Length(
-        min: 3,
-        max: 255,
-        minMessage: 'Le nom de l\'événement doit faire au moins {{ limit }} caractères',
-        maxMessage: 'Le nom de l\'événement ne peut pas dépasser {{ limit }} caractères'
-    )]
-    private ?string $eventName = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotNull(message: 'La plage horaire ne doit pas être nulle.')]
+    private $timeSlot;
 
-    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotNull(message: 'Le nom de l\'événement ne doit pas être nul.')]
+    private $eventName;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Assert\NotNull]
-    private ?User $user = null;
+    private $user;
 
     public function getId(): ?int
     {

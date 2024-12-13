@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profil{% endblock %}
+
+{% block body %}
+    <h1>Mon Profil</h1>
+
+    <table>
+        <tr>
+            <th>Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ user.name }}</td>
+        </tr>
+        <tr>
+            <th>Numéro de téléphone</th>
+            <td>{{ user.phoneNumber }}</td>
+        </tr>
+        <tr>
+            <th>Rôles</th>
+            <td>{{ user.roles|join(', ') }}</td>
+        </tr>
+    </table>
+
+    <a href="{{ path('profile_edit') }}">Modifier</a>
+{% endblock %}
